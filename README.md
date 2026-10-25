@@ -2,40 +2,42 @@
 
 **Kirill Ivashkin · Linux & System Administration · Infrastructure · Networking**
 
-My professional focus is Linux systems, infrastructure operations, networking, VPN connectivity, virtualization, monitoring, web services, and practical AI-assisted workflows.
+I focus on keeping systems reliable, making technical problems easier to diagnose, and turning infrastructure changes into clear, maintainable solutions.
 
-I use this profile as a professional portfolio for LinkedIn: a concise overview of my focus and the engineering decisions behind reliable, maintainable systems.
+My areas of work span Linux administration, networking and VPN, virtualization, monitoring, web operations, and practical AI-assisted workflows.
 
-## Areas of focus
+## Where I can help
 
-| Area | Engineering focus |
+| Area | Focus |
 | --- | --- |
 | Linux & system administration | Service health, troubleshooting, access management, maintenance, and recovery |
 | Infrastructure & virtualization | Workload isolation, capacity planning, lifecycle management, and restore planning |
-| Networking & VPN | Connectivity diagnosis, access boundaries, failure handling, and secure remote administration |
-| Monitoring | Actionable health signals, incident triage, alert quality, and operational documentation |
+| Networking & VPN | Connectivity diagnosis, secure remote administration, and clear access boundaries |
+| Monitoring | Useful health signals, actionable alerts, and structured incident response |
 | Web operations | Service dependencies, release checks, availability, and rollback planning |
-| AI-assisted workflows | Documentation, troubleshooting support, and reviewed automation with clear data boundaries |
+| AI-assisted workflows | Clearer documentation, troubleshooting support, and carefully reviewed automation |
 
-## Engineering studies
+## How I approach a project
 
-These **synthetic design case studies** explain an engineering approach using fictional scenarios. They are not claims about completed client projects, production deployments, or measured performance results.
+- Start with the goal, the current problem, and its impact on users.
+- Work through evidence and dependencies to find the cause.
+- Choose a focused solution with a practical recovery path.
+- Verify the result through the service behavior that matters.
+- Leave clear documentation so the system is easier to maintain.
 
-| Study | What it demonstrates |
+## Engineering walkthroughs
+
+Explore my approach to diagnosis, design decisions, and verification through illustrative scenarios and simplified diagrams.
+
+| Walkthrough | What it covers |
 | --- | --- |
-| [Linux service reliability](case-studies/linux-service-reliability.md) | Structured diagnosis, recovery decisions, and verification |
-| [VPN and connectivity troubleshooting](case-studies/vpn-connectivity.md) | Layered diagnosis and constrained administrative access |
-| [Virtualization and monitoring](case-studies/virtualization-monitoring.md) | Workload boundaries, useful alerts, and recovery planning |
-| [Web operations and AI-assisted work](case-studies/web-ai-operations.md) | Change control, rollback, and human review of AI output |
+| [Linux service reliability](case-studies/linux-service-reliability.md) | Finding failure causes, restoring service, and checking recovery |
+| [VPN and connectivity troubleshooting](case-studies/vpn-connectivity.md) | Tracing connection problems while keeping access focused |
+| [Virtualization and monitoring](case-studies/virtualization-monitoring.md) | Understanding failure scope, improving alerts, and planning restoration |
+| [Web operations and AI-assisted work](case-studies/web-ai-operations.md) | Making changes reviewable, testing behavior, and preparing rollback |
 
-## Working principles
+## Projects and opportunities
 
-- Understand the symptom and its impact before changing a system.
-- Prefer small, reversible changes with a clear recovery path.
-- Verify service behavior from the user's perspective.
-- Document the decision, validation, and remaining limitations.
-- Keep private operational details and customer material out of public repositories.
+Open to conversations about Linux and infrastructure projects, ongoing system administration, and technical roles where thoughtful troubleshooting and dependable operations matter.
 
-## About the material
-
-This is a documentation portfolio. All diagrams are conceptual and all incident examples are invented. It contains no real infrastructure inventory, network addresses, routes, credentials, customer source code, or customer data. The studies describe proposed validation steps; they do not present unperformed tests as completed work.
+Client confidentiality is part of my working approach: public materials focus on engineering decisions while operational details stay private.
