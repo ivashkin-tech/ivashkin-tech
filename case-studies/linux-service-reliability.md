@@ -13,12 +13,12 @@ Restore useful service while preserving evidence and keeping the change easy to 
 
 ## Conceptual service path
 
-```mermaid
-flowchart LR
-    U[User request] --> E[Web entry point]
-    E --> A[Application service]
-    A --> D[Required dependency]
-    O[Authorized operator] -. diagnosis .-> A
+```text
+User request -> Web entry point -> Application service -> Required dependency
+                                         ^
+                                         |
+                              Authorized operator
+                                    (diagnosis)
 ```
 
 This diagram shows dependency roles only; it is not a deployment map.
