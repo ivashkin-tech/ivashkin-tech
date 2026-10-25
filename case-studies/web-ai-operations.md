@@ -13,15 +13,24 @@ Make the change reviewable, reversible, and verifiable from the user's perspecti
 
 ## Conceptual workflow
 
-```mermaid
-flowchart LR
-    R[Defined requirement] --> D[Draft change and guide]
-    D --> H[Human review]
-    H --> L[Isolated validation]
-    L --> C[Controlled release]
-    C --> V[User-facing verification]
-    V -. failure .-> B[Rollback]
-    B --> V
+```text
+Defined requirement
+        |
+        v
+Draft change and guide -> Human review -> Isolated validation
+                                                |
+                                                v
+                                        Controlled release
+                                                |
+                                                v
+                                     User-facing verification
+                                                |
+                                           if failure
+                                                |
+                                                v
+                                             Rollback
+                                                |
+                                                +--> Verify again
 ```
 
 AI assistance belongs in drafting and analysis; it does not grant authority to release a change.
