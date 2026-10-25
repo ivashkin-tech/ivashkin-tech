@@ -1,15 +1,14 @@
 # Web operations and AI-assisted work
 
-**Type:** synthetic engineering design case study  
 **Focus:** web services, controlled changes, rollback, reviewed AI assistance
 
-## Scenario
+## Illustrative scenario
 
-A fictional web service needs a small operational change and an updated troubleshooting guide. AI can help structure the guide and identify questions to investigate, while the operator remains responsible for the change and its verification.
+Consider a web service that needs a small operational change and an updated troubleshooting guide. AI can help structure the guide and surface diagnostic questions; the operator reviews the suggestions and verifies the change.
 
-## Goal and constraints
+## Engineering goal
 
-Make the change reviewable, reversible, and verifiable from the user's perspective. Keep client code, operational logs, credentials, private endpoints, and customer data outside public material and outside AI prompts used for this example.
+Make the change easy to review, validate, and reverse. Keep the process focused on user-facing behavior and use sanitized context for AI-assisted analysis.
 
 ## Conceptual workflow
 
@@ -33,23 +32,23 @@ Draft change and guide -> Human review -> Isolated validation
                                                 +--> Verify again
 ```
 
-AI assistance belongs in drafting and analysis; it does not grant authority to release a change.
+AI supports drafting and analysis, with human review and a controlled release process.
 
 ## Engineering approach
 
 1. Define the expected behavior, dependencies, and acceptable failure conditions before editing.
 2. Draft a minimal change and record how to reverse it. Check whether the change includes persistent state that a simple rollback cannot undo.
-3. Use synthetic examples when asking AI to help explain a symptom or improve documentation. Review every suggested command and assumption before use.
+3. Use sanitized examples when asking AI to help explain a symptom or improve documentation. Review suggested commands and assumptions before use.
 4. Validate in an isolated environment with both successful requests and deliberately failed dependencies.
 5. Release through an authorized process, check the user action, and apply the rollback plan if acceptance criteria fail.
 
-## Example review boundary
+## AI-assisted diagnostic example
 
-An invented prompt could ask: “A fictional web service reports a healthy process but returns an error when a required dependency is stopped. List diagnostic questions and explain which observations would distinguish the hypotheses.”
+A useful diagnostic prompt could be: “A web service reports a healthy process but returns an error when a required dependency is stopped. List diagnostic questions and explain which observations would distinguish the hypotheses.”
 
-The resulting answer is a set of hypotheses for review. It is not evidence that a diagnosis is correct or that a suggested action is safe for a real system.
+Review the resulting hypotheses against observed behavior, then select a focused, reversible diagnostic step.
 
-## Proposed validation
+## Validation plan
 
 | Check | Expected observation |
 | --- | --- |
@@ -59,8 +58,6 @@ The resulting answer is a set of hypotheses for review. It is not evidence that 
 | AI-generated guidance reviewed | Unsupported assumptions and unsafe steps are removed |
 | Documentation reviewed | The guide describes the final behavior and recovery path |
 
-These are proposed checks, not recorded release results.
+## Operational considerations
 
-## Tradeoffs and limitations
-
-AI can accelerate drafting but adds review work and can produce incorrect instructions. Isolated validation reduces uncertainty but cannot reproduce every production dependency. This study includes no deployable application, customer deliverable, autonomous production agent, or claim of measured AI accuracy.
+AI-assisted drafting works best with clear questions, carefully selected context, and technical review. Combine isolated validation with release checks that account for the service's actual dependencies.
