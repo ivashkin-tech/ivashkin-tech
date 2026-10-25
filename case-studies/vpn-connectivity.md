@@ -13,12 +13,16 @@ Provide the access required for a defined administrative task. Keep user access,
 
 ## Conceptual access path
 
-```mermaid
-flowchart LR
-    A[Authorized administrator] --> V[VPN access boundary]
-    V --> P[Access policy]
-    P --> M[Designated management service]
-    P -. denied by policy .-> X[Unrelated resources]
+```text
+Authorized administrator
+          |
+          v
+ VPN access boundary
+          |
+          v
+     Access policy ---- allowed ----> Designated management service
+          |
+          +------------ denied -----> Unrelated resources
 ```
 
 This is a fictional access model, not a description of an existing network.
