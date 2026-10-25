@@ -1,15 +1,14 @@
 # Linux service reliability
 
-**Type:** synthetic engineering design case study  
 **Focus:** Linux administration, incident diagnosis, maintenance, recovery
 
-## Scenario
+## Illustrative scenario
 
-A fictional internal web service becomes intermittently unavailable after a maintenance window. The process appears to be running, but users cannot complete requests. No real system or incident is represented here.
+Consider an internal web service that becomes intermittently unavailable after a maintenance window. The process appears to be running, but users cannot complete requests. The task is to locate the failure and restore the user-facing service.
 
-## Goal and constraints
+## Engineering goal
 
-Restore useful service while preserving evidence and keeping the change easy to reverse. Administrative access is limited to authorized operators. Public documentation must not include hostnames, service accounts, logs, or configuration copied from an actual environment.
+Restore useful service, preserve the evidence needed for diagnosis, and keep the recovery steps easy to follow. Use authorized administrative access and document each intervention.
 
 ## Conceptual service path
 
@@ -21,7 +20,7 @@ User request -> Web entry point -> Application service -> Required dependency
                                     (diagnosis)
 ```
 
-This diagram shows dependency roles only; it is not a deployment map.
+The service path helps separate application behavior from dependency failures.
 
 ## Diagnostic approach
 
@@ -39,12 +38,12 @@ This diagram shows dependency roles only; it is not a deployment map.
 | Keep a change record and rollback procedure | It makes incident decisions traceable | The procedure must stay aligned with the actual service |
 | Capture evidence before intervention | It supports root-cause analysis | Evidence collection must not delay urgent containment |
 
-## Proposed validation
+## Validation plan
 
 In a disposable lab, introduce a missing dependency, a permission mismatch, and resource pressure as separate exercises. For each exercise, observe the failed user request, identify the relevant signal, apply a reversible correction, and confirm the request succeeds again. Also verify that the service can recover after a normal restart.
 
-**Acceptance criteria:** the functional check detects the failure; the recovery procedure restores the expected user action; the change and its reversal are documented. These are proposed criteria, not recorded test results.
+**Acceptance criteria:** the functional check detects the failure; the recovery procedure restores the expected user action; the change and its reversal are documented.
 
-## Limitations
+## Putting the approach into practice
 
-The scenario does not establish production availability, recovery times, or a root cause for any real incident. A real implementation needs environment-specific dependency mapping, access approval, and a maintenance plan.
+Map the service's dependencies, agree on the maintenance window, and define recovery criteria before making changes. Record what restored service and which checks confirmed the result.
