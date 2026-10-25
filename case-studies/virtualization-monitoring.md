@@ -1,15 +1,14 @@
 # Virtualization and monitoring
 
-**Type:** synthetic engineering design case study  
 **Focus:** virtualization, infrastructure operations, monitoring, recovery planning
 
-## Scenario
+## Illustrative scenario
 
-A fictional virtualized environment hosts a web workload and supporting services. An operator needs to distinguish a guest failure from shared infrastructure pressure, and to receive alerts that lead to a useful action.
+Consider a virtualized environment hosting a web workload and supporting services. The operator needs to distinguish a guest failure from shared infrastructure pressure and receive alerts that point to a useful next action.
 
-## Goal and constraints
+## Engineering goal
 
-Make failure scope visible and define a recovery path for the service. Public documentation uses abstract workload roles and invented conditions. It includes no actual hypervisor inventory, storage layout, administrative endpoints, screenshots, or operational logs.
+Make failure scope visible, give each alert a clear purpose, and define a recovery path for the service. Combine platform observations with checks of the behavior users depend on.
 
 ## Conceptual model
 
@@ -28,7 +27,7 @@ Virtualization layer
                        Platform signals
 ```
 
-The model does not represent a real host count or dependency arrangement.
+Platform and service signals provide complementary views of the same user-facing workload.
 
 ## Design decisions
 
@@ -45,15 +44,15 @@ Start with user impact, then compare the affected workload with its peers. If mu
 
 An operational alert should identify the affected service role, the observed condition, its severity, and the next diagnostic step. Sensitive context belongs in a restricted runbook rather than a public notification.
 
-## Proposed validation
+## Validation plan
 
 - Stop one lab service and confirm the functional check detects it without reporting every workload as unavailable.
 - Introduce controlled resource pressure and observe whether platform signals help explain the service symptom.
 - Repeat a brief transient condition and inspect whether notification behavior creates unnecessary noise.
 - Restore a disposable workload into an isolated environment and check its required user action and data consistency.
 
-**Acceptance criteria:** the operator can distinguish service and shared-layer failures; each alert has an owner and a documented action; restoration is verified against a defined service requirement. These exercises have not been reported as executed.
+**Acceptance criteria:** the operator can distinguish service and shared-layer failures; each alert has an owner and a documented action; restoration is verified against a defined service requirement.
 
-## Limitations
+## Putting the approach into practice
 
-No capacity benchmark, availability figure, backup guarantee, or recovery-time claim is made. Production recovery objectives and retention requirements must be established for the actual workload.
+Agree on recovery objectives, retention needs, and alert ownership for each workload. Use restoration exercises and representative capacity history to guide operational decisions.
