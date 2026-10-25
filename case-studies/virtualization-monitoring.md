@@ -13,14 +13,19 @@ Make failure scope visible and define a recovery path for the service. Public do
 
 ## Conceptual model
 
-```mermaid
-flowchart TB
-    H[Virtualization layer] --> W[Web workload]
-    H --> S[Supporting workload]
-    H -. platform signals .-> M[Monitoring]
-    W -. service signals .-> M
-    S -. dependency signals .-> M
-    M --> T[Operator triage]
+```text
+Virtualization layer
+    |          |
+    v          v
+   Web     Supporting
+ workload   workload
+    |          |
+    +-----+----+
+          |
+    Service signals ----> Monitoring ----> Operator triage
+                              ^
+                              |
+                       Platform signals
 ```
 
 The model does not represent a real host count or dependency arrangement.
